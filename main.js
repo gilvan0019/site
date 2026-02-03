@@ -2768,3 +2768,4 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     });
+}); // ✅ FECHA O DOMContentLoaded
