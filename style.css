@@ -1076,12 +1076,7 @@ body {
   flex: 1;
   overflow-y: auto;
 }
-.rod-horario {
-  margin-top: 6px;
-  font-size: 13px;
-  color: #555;
-  line-height: 1.4;
-}
+
 /* mantém rodapé fixo */
 .ocr-actions-bottom {
   margin-top: auto;
