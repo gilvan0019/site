@@ -1,22 +1,4 @@
-.ocr-top-actions {
-  display: flex;
-  gap: 8px;
-  justify-content: flex-end;
-}
-.ocr-top-actions button {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  border: none;
-  background: #263238;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
 
-.ocr-top-actions button:hover {
-  background: #37474f;
-}
 
 .ocr-overlay{
   position: fixed;
@@ -33,11 +15,7 @@
   box-shadow: inset 0 0 0 1px #4b5563;
 }
 
-/* 🌙 DARK MODE */
-.ocr-overlay.dark .doc.selecionado {
-  border: 2px solid  #9ca3af;
-  box-shadow: inset 0 0 0 1px #9ca3af;
-}
+
 .doc.selecionado:hover {
   background-color: rgba(0,0,0,0.02);
 }
@@ -220,13 +198,6 @@
 
 .final-valor {
   color: #0d47a1;
-}
-.ocr-top-actions {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  display: flex;
-  gap: 8px;
 }
 
 .ocr-overlay.fullscreen {
