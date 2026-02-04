@@ -345,9 +345,10 @@ const modalRod = document.createElement('div');
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,.5);
-  z-index: 999999;
+  z-index: 10000000; /* acima do OCR fullscreen */
   display: none;
 `;
+
 
 modalRod.innerHTML = `
   <div style="
