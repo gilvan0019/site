@@ -412,11 +412,35 @@ let rodoviarias = [];
 async function carregarRodoviarias() {
   if (rodoviarias.length) return;
 
-  const res = await fetch('./rodoviarias.json');
-  rodoviarias = await res.json();
+  try {
+    const res = await fetch('./rodoviarias.json');
 
-  renderRodoviarias(rodoviarias);
+    if (!res.ok) {
+      throw new Error('Erro ao carregar rodoviarias.json');
+    }
+
+    const data = await res.json();
+
+    if (!Array.isArray(data)) {
+      console.error('rodoviarias.json não é um array');
+      rodoviarias = [];
+    } else {
+      rodoviarias = data;
+    }
+
+    renderRodoviarias(rodoviarias);
+
+  } catch (e) {
+    console.error('Erro ao carregar rodoviárias:', e);
+
+    const container = modalRod.querySelector('#listaRod');
+    if (container) {
+      container.innerHTML =
+        '<p style="opacity:.6;text-align:center">Erro ao carregar rodoviárias</p>';
+    }
+  }
 }
+
 
 // 🔹 Renderiza lista
 function renderRodoviarias(lista) {
