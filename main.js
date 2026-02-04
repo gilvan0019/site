@@ -445,7 +445,7 @@ item.innerHTML = `
 
   <div class="rod-horario">
     ⏰ <b>Horário:</b><br>
-    ${horario["seg.sex"] ? `Seg-Sex: ${horario["seg.sex"]}<br>` : ''}
+${horario["seg_sex"] ? `Seg-Sex: ${horario["seg_sex"]}<br>` : ''}
     ${horario["sab"] ? `Sáb: ${horario["sab"]}<br>` : ''}
     ${horario["dom"] ? `Dom: ${horario["dom"]}` : ''}
   </div>
