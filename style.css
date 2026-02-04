@@ -1,3 +1,23 @@
+.ocr-top-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.ocr-top-actions button {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: #263238;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ocr-top-actions button:hover {
+  background: #37474f;
+}
 
 .ocr-overlay{
   position: fixed;
