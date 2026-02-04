@@ -1106,6 +1106,13 @@ body {
   background: linear-gradient(135deg,#8a6500,#b58900);
   color: #111;
 }
+/* 🚌 MODAL RODOVIÁRIAS SEMPRE NO TOPO */
+#modalRod,
+.rod-modal,
+.modal-rodoviarias {
+  z-index: 10000000 !important;
+}
+
 /* ===== BOTÃO OCR FIXO ===== */
 button {
   font-size: 14px;
