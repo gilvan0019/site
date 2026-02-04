@@ -900,6 +900,14 @@ body {
   white-space: nowrap;
 }
 
+/* ===== FIX DEFINITIVO CAMPOS DA LISTA ===== */
+
+.final-pix {
+  font-weight: 700;
+  color: #2563eb;
+  text-align: right;
+  white-space: nowrap;
+}
 
 /* ===== BOTÃO OCR FIXO ===== */
 button {
