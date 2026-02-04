@@ -420,44 +420,44 @@ async function carregarRodoviarias() {
 }
 
 // 🔹 Renderiza lista
-function renderRodoviarias(lista) {
+ffunction renderRodoviarias(lista) {
   const container = modalRod.querySelector('#listaRod');
   container.innerHTML = '';
 
   if (!lista.length) {
     container.innerHTML =
-      '<p style="opacity:.6">Nenhuma rodoviária encontrada</p>';
+      '<p style="opacity:.6;text-align:center">Nenhuma rodoviária encontrada</p>';
     return;
   }
 
   lista.forEach(r => {
     const item = document.createElement('div');
-    item.style.cssText = `
-      padding:10px;
-      border-bottom:1px solid #ddd;
-      cursor:pointer;
-    `;
+    item.className = 'rod-item';
 
     const cidade = r['CIDADE - UF'] || '';
     const nome = r['Nome'] || '';
     const endereco = r['Descricao'] || '';
 
     item.innerHTML = `
-      <strong>${nome}</strong><br>
-      <small>${cidade}</small><br>
-      <span>${endereco}</span>
+      <div class="rod-nome">${nome}</div>
+      <div class="rod-cidade">${cidade}</div>
+      <div class="rod-endereco">${endereco}</div>
     `;
 
     // 📋 clique copia endereço
     item.onclick = () => {
       navigator.clipboard.writeText(endereco);
-      item.style.background = '#e3f2fd';
-      setTimeout(() => (item.style.background = ''), 500);
+      item.classList.add('rod-copiado');
+
+      setTimeout(() => {
+        item.classList.remove('rod-copiado');
+      }, 600);
     };
 
     container.appendChild(item);
   });
 }
+
 
 // 🔹 Abrir modal
 btnRod.onclick = async () => {
