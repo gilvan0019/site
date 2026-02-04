@@ -1088,6 +1088,15 @@ body {
   width: 100vw;
   overflow: hidden;
 }
+.ocr-overlay {
+  position: relative;
+  z-index: 2000; /* maior que a sidebar */
+}.ocr-top-actions {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  z-index: 3000; /* acima do overlay */
+}
 
 /* ===== SIDEBAR ===== */
 .app-sidebar {
