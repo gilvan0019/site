@@ -14,12 +14,9 @@
   border: 2px solid  #4b5563;
   box-shadow: inset 0 0 0 1px #4b5563;
 }
-
-
 .doc.selecionado:hover {
   background-color: rgba(0,0,0,0.02);
 }
-
 .ocr-overlay.dark .doc.selecionado:hover {
   background-color: rgba(255,255,255,0.04);
 }
