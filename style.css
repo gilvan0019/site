@@ -14,12 +14,11 @@
   cursor: pointer;
 }
 .rod-horario {
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 13px;
-  color: #2e7d32;
-  font-weight: 500;
+  color: #555;
+  line-height: 1.4;
 }
-
 .ocr-top-actions button:hover {
   background: #37474f;
 }
