@@ -221,13 +221,6 @@
 .final-valor {
   color: #0d47a1;
 }
-.ocr-top-actions {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  display: flex;
-  gap: 8px;
-}
 
 .ocr-overlay.fullscreen {
   top: 0 !important;
@@ -627,15 +620,6 @@ border: 1px solid #d2d0cd;
   color: #e5e7eb;
   border: 1px solid #3a3a3a;
   box-shadow: none;
-}
-
-.ocr-top-actions {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  display: flex;
-  gap: 8px;
-  z-index: 10;
 }
 
 .ocr-top-actions button {
