@@ -85,16 +85,6 @@
   padding:10px
 }
 
-.doc-actions button{
-  flex:1;
-  padding:10px;
-  border:0;
-  border-radius:999px;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:13px
-}
-
 .copy {
   transition:
     background 0.25s ease,
@@ -223,155 +213,6 @@
   margin-bottom: 14px;
 }
 
-.ocr-overlay.dark .ocr-box {
-  background: #1e1e1e;
-  color: #e0e0e0;
-  box-shadow: 0 20px 50px rgba(0,0,0,.6);
-}
-
-.ocr-overlay.dark .ocr-drop {
-  background: #2a2a2a;
-  border-color: #555;
-  color: #90caf9;
-}
-
-
-.ocr-overlay.dark .ocr-input {
-  background: #2b2b2b !important;
-  color: #fff !important;
-  border: 1px solid #555 !important;
-}
-
-/* placeholder (se houver) */
-.ocr-overlay.dark .ocr-input::placeholder {
-  color: #444 !important;
-}
-
-
-.ocr-overlay.dark .ocr-select {
-  background-image:
-    linear-gradient(45deg, transparent 50%, #bbb 50%),
-    linear-gradient(135deg, #bbb 50%, transparent 50%);
-}
-
-
-.ocr-overlay.dark .ocr-info {
-  color: #90caf9;
-}
-
-.ocr-overlay.dark .doc {
-  background: #252525;
-  border-color: #444;
-}
-
-.ocr-overlay.dark .doc-header {
-  color: #e0e0e0;
-}
-
-.ocr-overlay.dark .final-nome {
-  color: #fff;
-}
-.ocr-overlay.dark .final-hora {
-  color: #b0b0b0;
-}
-.ocr-overlay.dark .final-valor {
-  color: #81c784;
-}
-
-.ocr-overlay.dark .copy {
-  background: linear-gradient(135deg, #1a237e, #0d47a1);
-}
-
-.ocr-overlay.dark .remove {
-  background: linear-gradient(135deg, #8e0000, #c62828);
-}
-
-.ocr-overlay.dark .btn-green {
-  background: linear-gradient(135deg, #111, #333);
-}
-
-
-.ocr-overlay.dark .ocr-list::-webkit-scrollbar {
-  width: 8px;
-}
-.ocr-overlay.dark .ocr-list::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 6px;
-}
-.ocr-overlay.dark .ocr-list::-webkit-scrollbar-track {
-  background: #1e1e1e;
-}
-
-.ocr-overlay.dark .ocr-select {
-  background-color: #2b2b2b;
-  color: #f1f1f1;
-  border: 1px solid #555;
-}
-
-.ocr-overlay.dark .ocr-select {
-  background-image:
-    linear-gradient(45deg, transparent 50%, #ccc 50%),
-    linear-gradient(135deg, #ccc 50%, transparent 50%);
-}
-
-.ocr-overlay.dark .ocr-actions-bottom {
-  background: #1e1e1e;
-  border-top: 1px solid #333;
-}
-
-.ocr-overlay.dark select,
-.ocr-overlay.dark select:focus,
-.ocr-overlay.dark select:active {
-  background-color: #2b2b2b !important;
-  color: #ffffff !important;
-  border: 1px solid #555 !important;
-  outline: none !important;
-}
-
-.ocr-overlay.dark select option {
-  background-color: #2b2b2b;
-  color: #ffffff;
-}
-
-.ocr-overlay.dark select option:checked {
-  background-color: #1e1e1e;
-  color: #90caf9;
-}
-.ocr-overlay.dark {
-  color-scheme: dark;
-}
-
-.ocr-overlay.dark .ocr-actions-bottom button {
-  background: #e0e0e0 !important;
-  color: #111 !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-.ocr-overlay.dark .ocr-actions-bottom button:hover {
-  background: #ffffff !important;
-  filter: none !important;
-}
-
-.ocr-overlay.dark .ocr-actions-bottom button:last-child {
-  color: #c62828 !important;
-}
-
-
-.ocr-overlay.dark .ocr-actions-bottom button:last-child svg,
-.ocr-overlay.dark .ocr-actions-bottom button:last-child span {
-  color: #c62828 !important;
-}
-
-.ocr-overlay.dark select option {
-  color: #fff !important;
-  background: #2b2b2b !important;
-}
-
-.ocr-overlay.dark select option:checked {
-  color: #fff !important;
-  background: #2b2b2b !important;
-}
-
 .taxa:hover{
   filter: brightness(0.9);
 }
@@ -440,18 +281,6 @@
   font-weight: bold;
 }
 
-.doc-actions button{
-  background: #f1f3f5;
-  color: #374151;
-  border: 1px solid #d0d7de;
-  border-radius: 999px;
-  font-weight: 600;
-  transition:
-    background .25s ease,
-    color .25s ease,
-    box-shadow .25s ease,
-    transform .15s ease;
-}
 
 .doc-actions button:hover{
   box-shadow: 0 4px 10px rgba(0,0,0,.12);
@@ -710,9 +539,6 @@ border: 1px solid #d2d0cd;
   background-color: #8a6500 !important;
   color: #fff !important;
 }
-.doc {
-  padding: 6px 10px;
-}
 
 .doc-final {
   gap: 16px;
@@ -878,7 +704,6 @@ body {
 }
 /* ===== LISTA ===== */
 
-./* ===== LISTA ===== */
 .ocr-list {
   margin-top: 12px;
 }
@@ -996,25 +821,6 @@ body {
   width: 64px;
   padding: 16px 8px;
 }
-
-/* ===== BOTÃO OCR FIXO ===== */
-button {
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  .ocr-box {
-    padding: 12px;
-  }
-
-  .ocr-drop {
-    font-size: 16px;
-  }
-    /* ===========================
-   ESTILO LISTA COMPACTA
-   (igual segunda imagem)
-=========================== */
-
 .doc {
   display: flex;
   align-items: center;
@@ -1080,35 +886,25 @@ button {
   white-space: nowrap;
 }
 
-/* ===========================
-   DARK MODE
+
+/* ===== BOTÃO OCR FIXO ===== */
+button {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .ocr-box {
+    padding: 12px;
+  }
+
+  .ocr-drop {
+    font-size: 16px;
+  }
+    /* ===========================
+   ESTILO LISTA COMPACTA
+   (igual segunda imagem)
 =========================== */
 
-.ocr-overlay.dark .doc {
-  background: #1f2933;
-  border-color: #374151;
-}
 
-.ocr-overlay.dark .doc:hover {
-  background: #27313d;
-}
-
-.ocr-overlay.dark .final-nome {
-  color: #f9fafb;
-}
-
-.ocr-overlay.dark .final-hora {
-  color: #9ca3af;
-}
-
-.ocr-overlay.dark .final-valor {
-  color: #facc15;
-}
-
-.ocr-overlay.dark .doc-actions button {
-  background: #111827;
-  border-color: #374151;
-  color: #e5e7eb;
-}
 
 }
