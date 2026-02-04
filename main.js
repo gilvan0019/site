@@ -373,6 +373,44 @@ btnRod.style.cssText = `
 document.body.appendChild(btnRod);
 // 🪟 MODAL RODOVIÁRIAS
 const modalRod = document.createElement('div');
+
+  modalRod.style.cssText = `
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 999999;
+  display: none;
+`;
+
+modalRod.innerHTML = `
+  <div style="
+    background:#fff;
+    width:600px;
+    max-width:95%;
+    max-height:80vh;
+    margin:5vh auto;
+    padding:16px;
+    border-radius:12px;
+    overflow:auto;
+  ">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3>🚌 Rodoviárias</h3>
+      <button id="fecharRod">✖</button>
+    </div>
+
+    <input
+      id="buscaRod"
+      placeholder="Buscar rodoviária ou cidade"
+      style="width:100%;padding:8px;margin:10px 0"
+    />
+
+    <div id="listaRod"></div>
+  </div>
+`;
+
+document.body.appendChild(modalRod);
+
+  
 let rodoviarias = [];
 
 // 🔹 Carrega JSON apenas uma vez
@@ -448,64 +486,6 @@ modalRod.querySelector('#buscaRod').oninput = e => {
 
   renderRodoviarias(filtradas);
 };
-
-
-
-  
-modalRod.style.cssText = `
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  z-index: 999999;
-  display: none;
-`;
-
-modalRod.innerHTML = `
-  <div style="
-    background:#fff;
-    width:600px;
-    max-width:95%;
-    max-height:80vh;
-    margin:5vh auto;
-    padding:16px;
-    border-radius:12px;
-    overflow:auto;
-  ">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <h3>🚌 Rodoviárias</h3>
-      <button id="fecharRod">✖</button>
-    </div>
-
-    <input
-      id="buscaRod"
-      placeholder="Buscar rodoviária ou cidade"
-      style="width:100%;padding:8px;margin:10px 0"
-    />
-
-    <div id="listaRod"></div>
-  </div>
-`;
-
-document.body.appendChild(modalRod);
-
-btnRod.onclick = async () => {
-  modalRod.style.display = 'block';
-  await carregarRodoviarias();
-};
-
-modalRod.querySelector('#fecharRod').onclick = () => {
-  modalRod.style.display = 'none';
-};
-
-modalRod.querySelector('#buscaRod').oninput = e => {
-  const t = e.target.value.toLowerCase();
-  renderRodoviarias(
-    rodoviarias.filter(r =>
-      JSON.stringify(r).toLowerCase().includes(t)
-    )
-  );
-};
-
     // 🔁 RESTAURA POSIÇÃO
     const posSalva = JSON.parse(localStorage.getItem('OCR_BTN_POS') || '{}');
     if (posSalva.left) {
@@ -2049,18 +2029,6 @@ modalRod.querySelector('#buscaRod').oninput = e => {
             texto: valor.trim()
         };
     }
-// ================= RODOVIÁRIAS =================
-let listaRodoviarias = [];
-
-async function carregarRodoviarias() {
-    try {
-        const res = await fetch('./data/rodoviarias.json');
-        listaRodoviarias = await res.json();
-        console.log('Rodoviárias carregadas:', listaRodoviarias);
-    } catch (e) {
-        console.error('Erro ao carregar rodoviárias', e);
-    }
-}
 
   
     function gerarRelatorioExcel() {
