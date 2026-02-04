@@ -353,8 +353,109 @@ carregarRodoviarias();
   font-weight: bold;
   cursor: grab;
 `;
+// 🚌 BOTÃO RODOVIÁRIAS
+const btnRod = document.createElement('button');
+btnRod.textContent = '🚌 Rodoviárias';
+btnRod.className = 'btn-rod';
+document.body.appendChild(btnRod);
 
     document.body.appendChild(btn);
+// 🚌 BOTÃO RODOVIÁRIAS
+const btnRod = document.createElement('button');
+btnRod.textContent = '🚌 Rodoviárias';
+btnRod.style.cssText = `
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  z-index: 999999;
+  padding: 10px 16px;
+  border-radius: 50px;
+  border: 0;
+  background: #00695c;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+`;
+document.body.appendChild(btnRod);
+// 🪟 MODAL RODOVIÁRIAS
+const modalRod = document.createElement('div');
+modalRod.style.cssText = `
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 999999;
+  display: none;
+`;
+
+modalRod.innerHTML = `
+  <div style="
+    background:#fff;
+    width:600px;
+    max-width:95%;
+    max-height:80vh;
+    margin:5vh auto;
+    padding:16px;
+    border-radius:12px;
+    overflow:auto;
+  ">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3>🚌 Rodoviárias</h3>
+      <button id="fecharRod">✖</button>
+    </div>
+
+    <input
+      id="buscaRod"
+      placeholder="Buscar rodoviária ou cidade"
+      style="width:100%;padding:8px;margin:10px 0"
+    />
+
+    <div id="listaRod"></div>
+  </div>
+`;
+
+document.body.appendChild(modalRod);
+let rodoviarias = [];
+
+async function carregarRodoviarias() {
+  if (rodoviarias.length) return;
+
+  const r = await fetch('./rodoviarias.json');
+  rodoviarias = await r.json();
+  renderRodoviarias(rodoviarias);
+}
+
+function renderRodoviarias(lista) {
+  const box = modalRod.querySelector('#listaRod');
+  box.innerHTML = '';
+
+  lista.forEach(r => {
+    const d = document.createElement('div');
+    d.style.cssText = 'padding:8px;border-bottom:1px solid #ddd';
+    d.innerHTML = `
+      <b>${r.localidade || ''}</b><br>
+      ${r.nome || ''}<br>
+      ${r.endereco || ''}
+    `;
+    box.appendChild(d);
+  });
+}
+btnRod.onclick = async () => {
+  modalRod.style.display = 'block';
+  await carregarRodoviarias();
+};
+
+modalRod.querySelector('#fecharRod').onclick = () => {
+  modalRod.style.display = 'none';
+};
+
+modalRod.querySelector('#buscaRod').oninput = e => {
+  const t = e.target.value.toLowerCase();
+  renderRodoviarias(
+    rodoviarias.filter(r =>
+      JSON.stringify(r).toLowerCase().includes(t)
+    )
+  );
+};
 
     // 🔁 RESTAURA POSIÇÃO
     const posSalva = JSON.parse(localStorage.getItem('OCR_BTN_POS') || '{}');
