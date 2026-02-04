@@ -798,20 +798,19 @@ body {
 /* ===== CONTAINER PRINCIPAL ===== */
 /* ===== OCR CONTAINER ===== */
 .ocr-overlay {
-  position: relative;        /* fica dentro do app */
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  display: flex;             /* 🔥 essencial */
-  box-sizing: border-box;
+  flex: 1;
+  display: flex;
 }
+
 
 /* ===== OCR CARD ===== */
 .ocr-box {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 0; /* 🔥 ESSENCIAL pro scroll funcionar */
 }
+
 
 /* ===== ÁREA DE DROP ===== */
 .ocr-drop {
@@ -936,16 +935,12 @@ body {
 /* ===== CONTEÚDO ===== */
 .app-content {
   flex: 1;
-  min-width: 0;              /* 🔥 flex não quebra */
-  height: 100vh;             /* 🔥 evita sumir tudo */
+  min-width: 0;
+  height: 100vh;
+  display: flex;
   overflow: hidden;
+}
 
-  transition: margin-left .25s ease, width .25s ease;
-}
-.ocr-overlay.dark ~ .app-sidebar,
-.app-sidebar.dark {
-  background: #0f172a;
-}
 
 .ocr-overlay.dark .sidebar-btn {
   background: linear-gradient(135deg,#8a6500,#b58900);
