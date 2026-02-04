@@ -4775,18 +4775,20 @@
       "Latitude": "-14.840394",
       "Longitude": "-56.435126"
     },
-    {
-      "CIDADE - UF": "RUSSAS - CE",
-      "UF": "CE",
-      "Nome": "RUSSAS - CE",
-      "Descricao": "Agência Guanabara de Russas - Planalto da Catumbela, Av. Irmã Maria da Graça, 1631",
-      "Latitude": "-4.949351",
-      "Longitude": "-37.989380",
-      "Horario": {
+  {
+  "CIDADE - UF": "RUSSAS - CE",
+  "UF": "CE",
+  "Nome": "RUSSAS - CE",
+  "Descricao": "Agência Guanabara de Russas - Planalto da Catumbela, Av. Irmã Maria da Graça, 1631",
+  "Latitude": "-4.949351",
+  "Longitude": "-37.989380",
+  "Horario": {
     "seg_sex": "06:00 às 22:00",
     "sab": "07:00 às 18:00",
     "dom": "Fechado"
   }
+
+
     },
     {
       "CIDADE - UF": "SALGUEIRO - PE",
