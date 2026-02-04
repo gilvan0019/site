@@ -353,12 +353,6 @@ carregarRodoviarias();
   font-weight: bold;
   cursor: grab;
 `;
-// 🚌 BOTÃO RODOVIÁRIAS
-const btnRod = document.createElement('button');
-btnRod.textContent = '🚌 Rodoviárias';
-btnRod.className = 'btn-rod';
-document.body.appendChild(btnRod);
-
     document.body.appendChild(btn);
 // 🚌 BOTÃO RODOVIÁRIAS
 const btnRod = document.createElement('button');
