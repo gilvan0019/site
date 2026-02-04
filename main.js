@@ -450,8 +450,6 @@ item.innerHTML = `
     ${horario.dom ? `Dom: ${horario.dom}` : ''}
   </div>
 `;
-
-
     // 📋 clique copia endereço
     item.onclick = () => {
       navigator.clipboard.writeText(endereco);
