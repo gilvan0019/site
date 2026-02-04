@@ -304,23 +304,7 @@ overlay.style.display = 'block';
     atualizarContador();
 
     /* ========= DRAG ========= */
-    let drag=false,ox=0,oy=0;
-    box.onmousedown = e => {
-        if (fullscreen) return; // 🔒 trava drag em tela cheia
-        if (e.target.tagName === 'BUTTON') return;
-        drag = true;
-        ox = e.clientX - overlay.offsetLeft;
-        oy = e.clientY - overlay.offsetTop;
-    };
-    document.onmousemove=e=>{
-        if(drag){
-            overlay.style.left=e.clientX-ox+'px';
-            overlay.style.top=e.clientY-oy+'px';
-        }
-    };
-    document.onmouseup=()=>drag=false;
 
-    document.body.appendChild(btn);
 
 // 🪟 MODAL RODOVIÁRIAS
 const modalRod = document.createElement('div');
@@ -495,55 +479,14 @@ modalRod.querySelector('#buscaRod').oninput = e => {
 
   renderRodoviarias(filtradas);
 };
-    // 🔁 RESTAURA POSIÇÃO
-    const posSalva = JSON.parse(localStorage.getItem('OCR_BTN_POS') || '{}');
-    if (posSalva.left) {
-        btn.style.left = posSalva.left;
-        btn.style.top  = posSalva.top;
-        btn.style.bottom = 'auto';
-        btn.style.right  = 'auto';
-    }
 
-    // 🖱️ DRAG
-    let dragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
-
-    btn.addEventListener('mousedown', e => {
-        dragging = true;
-        btn.style.cursor = 'grabbing';
-        offsetX = e.clientX - btn.offsetLeft;
-        offsetY = e.clientY - btn.offsetTop;
-        e.preventDefault();
-    });
-
-    document.addEventListener('mousemove', e => {
-        if (!dragging) return;
-        btn.style.left = (e.clientX - offsetX) + 'px';
-        btn.style.top  = (e.clientY - offsetY) + 'px';
-        btn.style.bottom = 'auto';
-        btn.style.right  = 'auto';
-    });
-
-    document.addEventListener('mouseup', () => {
-        if (!dragging) return;
-        dragging = false;
-        btn.style.cursor = 'grab';
-
-        // 💾 salva posição
-        localStorage.setItem('OCR_BTN_POS', JSON.stringify({
-            left: btn.style.left,
-            top: btn.style.top
-        }));
-    });
-
-    // 👆 CLIQUE ABRE OCR (sem arrastar)
-    btn.addEventListener('click', e => {
-        if (dragging) return;
-        overlay.style.display = 'block';
-    });
-
-    closeBtn.onclick=()=>overlay.style.display='none';
+closeBtn.onclick = () => {
+    registrosOCR.length = 0;
+    list.innerHTML = '';
+    limparStorage();
+    atualizarContador();
+    atualizarTotalTela();
+};
 
     /* ========= INPUT ========= */
     const input=document.createElement('input');
