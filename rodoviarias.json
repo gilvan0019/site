@@ -4230,10 +4230,6 @@
     "Descricao": "Agência Guanabara de Nova Russas - Av. Joaquim Lopes Pedrosa, s/n",
     "Latitude": "-4.706700",
     "Longitude": "-40.555900"
-    "Horario": {
-  "seg_dom": "24 horas",
-}
-     }
   },
   {
     "CIDADE - UF": "NOVA SERRANA - MG",
@@ -4794,6 +4790,9 @@
     "Descricao": "Agência Guanabara de Salgueiro - Rua João Veras de Siqueira, 1821",
     "Latitude": "-8.071629",
     "Longitude": "-39.135066"
+    "Horario": {
+  "seg_dom": "24 horas",
+}
   },
   {
     "CIDADE - UF": "SANTA CRUZ - RN",
