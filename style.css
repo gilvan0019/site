@@ -3,6 +3,12 @@
   gap: 8px;
   justify-content: flex-end;
 }
+.rod-horario {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+}
 
 .ocr-top-actions button {
   width: 36px;
