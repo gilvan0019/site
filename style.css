@@ -1012,7 +1012,23 @@ body {
   width: 64px;
   padding: 16px 8px;
 }
+.ocr-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
+.ocr-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.ocr-actions-bottom {
+  margin-top: auto;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+}
 /* ===== BOTÃO OCR FIXO ===== */
 button {
   font-size: 14px;
