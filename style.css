@@ -13,6 +13,12 @@
   font-size: 16px;
   cursor: pointer;
 }
+.rod-horario {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #2e7d32;
+  font-weight: 500;
+}
 
 .ocr-top-actions button:hover {
   background: #37474f;
