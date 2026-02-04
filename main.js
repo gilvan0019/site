@@ -318,6 +318,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     restaurarCardsDaTela();
     atualizarTotalTela();
     atualizarContador();
+carregarRodoviarias();
 
     /* ========= DRAG ========= */
     let drag=false,ox=0,oy=0;
@@ -1898,6 +1899,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             texto: valor.trim()
         };
     }
+// ================= RODOVIÁRIAS =================
+let listaRodoviarias = [];
+
+async function carregarRodoviarias() {
+    try {
+        const res = await fetch('./data/rodoviarias.json');
+        listaRodoviarias = await res.json();
+        console.log('Rodoviárias carregadas:', listaRodoviarias);
+    } catch (e) {
+        console.error('Erro ao carregar rodoviárias', e);
+    }
+}
+
+  
     function gerarRelatorioExcel() {
         const dados = [];
 
