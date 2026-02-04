@@ -1,10 +1,4 @@
 
-.ocr-overlay {
-  position: relative !important;
-  inset: unset !important;
-  display: block !important;
-  padding: 20px;
-}
 /* ===== CARD SELECIONADO ===== */
 .doc.selecionado {
   border: 2px solid  #4b5563;
@@ -258,17 +252,6 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 14px;
-}
-
-
-.ocr-overlay.fullscreen .ocr-header-form {
-  flex-direction: row;
-  gap: 14px;
-}
-
-.ocr-overlay.fullscreen .ocr-header-form .ocr-input,
-.ocr-overlay.fullscreen .ocr-header-form .ocr-select {
-  flex: 1;
 }
 
 .ocr-overlay.dark .ocr-box {
@@ -534,16 +517,6 @@ border: 1px solid #d2d0cd;
   border: 1px solid #3a3a3a;
   box-shadow: none;
 }
-
-.ocr-top-actions {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  display: flex;
-  gap: 8px;
-  z-index: 10;
-}
-
 
 .ocr-overlay.dark .final-pix,
 .ocr-overlay.dark .final-valor,
