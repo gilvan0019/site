@@ -13,34 +13,42 @@
 </head>
 <body>
 
-  <!-- ===== LAYOUT COM SIDEBAR ===== -->
-  <div class="app-layout">
+<!-- ===== LAYOUT COM SIDEBAR ===== -->
+<div class="app-layout">
 
-    <!-- SIDEBAR FIXA -->
-    <aside class="app-sidebar">
-      <div class="sidebar-header">
-        OCR PIX
-      </div>
+  <!-- SIDEBAR FIXA -->
+  <aside class="app-sidebar">
 
-      <button id="btnCalc" class="sidebar-btn">
-        🧮 Calculadora
-      </button>
+    <!-- BOTÃO ENCOLHER / EXPANDIR -->
+    <button id="toggleSidebar" class="sidebar-toggle">
+      ☰
+    </button>
 
-      <button id="btnRod" class="sidebar-btn">
-        🚌 Rodoviárias
-      </button>
-    </aside>
+    <div class="sidebar-header">
+      OCR PIX
+    </div>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="app-content">
+    <button id="btnCalc" class="sidebar-btn" data-icon="🧮">
+      🧮 Calculadora
+    </button>
 
-      <!-- 🔽 O OCR SERÁ INJETADO AQUI PELO main.js -->
-      <div id="app-root"></div>
+    <button id="btnRod" class="sidebar-btn" data-icon="🚌">
+      🚌 Rodoviárias
+    </button>
 
-    </main>
+  </aside>
 
-  </div>
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="app-content">
 
-  <script src="main.js"></script>
+    <!-- 🔽 O OCR SERÁ INJETADO AQUI PELO main.js -->
+    <div id="app-root"></div>
+
+  </main>
+
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>
+
