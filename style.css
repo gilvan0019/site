@@ -1147,6 +1147,51 @@ body {
   background: linear-gradient(135deg,#8a6500,#b58900);
   color: #111;
 }
+/* ===== SIDEBAR COLAPSÁVEL ===== */
+.app-sidebar {
+  transition: width .25s ease;
+}
+
+.app-content {
+  transition: margin-left .25s ease, width .25s ease;
+}
+
+/* ===== BOTÃO TOGGLE ===== */
+.sidebar-toggle {
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+/* ===== SIDEBAR FECHADA ===== */
+.app-layout.sidebar-collapsed .app-sidebar {
+  width: 64px;
+  padding: 16px 8px;
+}
+
+/* esconde textos */
+.app-layout.sidebar-collapsed .sidebar-header,
+.app-layout.sidebar-collapsed .sidebar-btn {
+  font-size: 0;
+  padding: 12px 0;
+}
+
+/* mantém ícones visíveis */
+.app-layout.sidebar-collapsed .sidebar-btn::before {
+  content: attr(data-icon);
+  font-size: 18px;
+}
+
+/* ajusta conteúdo */
+.app-layout.sidebar-collapsed .app-content {
+  margin-left: 64px;
+  width: calc(100vw - 64px);
+}
+
 /* ===== BOTÃO OCR FIXO ===== */
 button {
   font-size: 14px;
