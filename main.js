@@ -176,7 +176,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     const darkBtn = document.createElement('button');
     darkBtn.textContent = '🌙';
     darkBtn.title = 'Modo escuro';
+// 🚌 BOTÃO RODOVIÁRIAS (TOPO)
+const btnRod = document.createElement('button');
+btnRod.textContent = '🚌';
+btnRod.title = 'Rodoviárias';
 
+topActions.appendChild(btnRod);
+
+btnRod.onclick = async () => {
+  modalRod.style.display = 'block';
+  await carregarRodoviarias();
+};
+
+  
     topActions.appendChild(darkBtn);
 
 
@@ -354,23 +366,7 @@ carregarRodoviarias();
   cursor: grab;
 `;
     document.body.appendChild(btn);
-// 🚌 BOTÃO RODOVIÁRIAS
-const btnRod = document.createElement('button');
-btnRod.textContent = '🚌 Rodoviárias';
-btnRod.style.cssText = `
-  position: fixed;
-  bottom: 70px;
-  right: 20px;
-  z-index: 999999;
-  padding: 10px 16px;
-  border-radius: 50px;
-  border: 0;
-  background: #00695c;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-`;
-document.body.appendChild(btnRod);
+
 // 🪟 MODAL RODOVIÁRIAS
 const modalRod = document.createElement('div');
 
