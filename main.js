@@ -145,6 +145,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const box = document.createElement('div');
     box.className = 'ocr-box';
+    // Criar o container para os botões
+    const topActions = document.createElement('div');
+    topActions.className = 'ocr-top-actions';
+    box.appendChild(topActions);
+
+    const maxBtn = document.createElement('button');
+    maxBtn.textContent = '⤢';
+    maxBtn.title = 'Maximizar / Restaurar';
+    maxBtn.className = 'ocr-max';
+    topActions.appendChild(maxBtn);
+
+
+    const darkBtn = document.createElement('button');
+    darkBtn.textContent = '🌙';
+    darkBtn.title = 'Modo escuro';
+
+    topActions.appendChild(darkBtn);
+
 
     const drop = document.createElement('div');
     drop.className = 'ocr-drop';
@@ -177,6 +195,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const list = document.createElement('div');
     list.className = 'ocr-list';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '❌ Fechar';
+    closeBtn.className = 'close';
 
     const reportBtn = document.createElement('button');
     reportBtn.textContent = ' Gerar relatório EXCEL';
@@ -259,7 +281,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const actionsBottom = document.createElement('div');
     actionsBottom.className = 'ocr-actions-bottom';
 
-actionsBottom.append(reportBtn);
+    actionsBottom.append(reportBtn, closeBtn);
 
     box.append(
         drop,
@@ -282,7 +304,39 @@ overlay.style.display = 'block';
     atualizarContador();
 
     /* ========= DRAG ========= */
+    let drag=false,ox=0,oy=0;
+    box.onmousedown = e => {
+        if (fullscreen) return; // 🔒 trava drag em tela cheia
+        if (e.target.tagName === 'BUTTON') return;
+        drag = true;
+        ox = e.clientX - overlay.offsetLeft;
+        oy = e.clientY - overlay.offsetTop;
+    };
+    document.onmousemove=e=>{
+        if(drag){
+            overlay.style.left=e.clientX-ox+'px';
+            overlay.style.top=e.clientY-oy+'px';
+        }
+    };
+    document.onmouseup=()=>drag=false;
 
+    // ========= BOTÃO OCR MÓVEL =========
+    const btn = document.createElement('button');
+    btn.textContent = '📄 OCR';
+    btn.style.cssText = `
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999999;
+  padding: 10px 16px;
+  border-radius: 50px;
+  border: 0;
+  background: #303F9F;
+  color: #fff;
+  font-weight: bold;
+  cursor: grab;
+`;
+    document.body.appendChild(btn);
 
 // 🪟 MODAL RODOVIÁRIAS
 const modalRod = document.createElement('div');
@@ -322,26 +376,6 @@ modalRod.innerHTML = `
 `;
 
 document.body.appendChild(modalRod);
-  // ===== TOGGLE SIDEBAR =====
-const toggleSidebar = document.getElementById('toggleSidebar');
-const layout = document.querySelector('.app-layout');
-
-if (toggleSidebar && layout) {
-  toggleSidebar.onclick = () => {
-    layout.classList.toggle('sidebar-collapsed');
-
-    localStorage.setItem(
-      'SIDEBAR_COLLAPSED',
-      layout.classList.contains('sidebar-collapsed') ? '1' : '0'
-    );
-  };
-
-  // restaura estado salvo
-  if (localStorage.getItem('SIDEBAR_COLLAPSED') === '1') {
-    layout.classList.add('sidebar-collapsed');
-  }
-}
-
 // ===== SIDEBAR ACTIONS =====
 const btnCalcSidebar = document.getElementById('btnCalc');
 const btnRodSidebar  = document.getElementById('btnRod');
@@ -457,6 +491,55 @@ modalRod.querySelector('#buscaRod').oninput = e => {
 
   renderRodoviarias(filtradas);
 };
+    // 🔁 RESTAURA POSIÇÃO
+    const posSalva = JSON.parse(localStorage.getItem('OCR_BTN_POS') || '{}');
+    if (posSalva.left) {
+        btn.style.left = posSalva.left;
+        btn.style.top  = posSalva.top;
+        btn.style.bottom = 'auto';
+        btn.style.right  = 'auto';
+    }
+
+    // 🖱️ DRAG
+    let dragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    btn.addEventListener('mousedown', e => {
+        dragging = true;
+        btn.style.cursor = 'grabbing';
+        offsetX = e.clientX - btn.offsetLeft;
+        offsetY = e.clientY - btn.offsetTop;
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', e => {
+        if (!dragging) return;
+        btn.style.left = (e.clientX - offsetX) + 'px';
+        btn.style.top  = (e.clientY - offsetY) + 'px';
+        btn.style.bottom = 'auto';
+        btn.style.right  = 'auto';
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (!dragging) return;
+        dragging = false;
+        btn.style.cursor = 'grab';
+
+        // 💾 salva posição
+        localStorage.setItem('OCR_BTN_POS', JSON.stringify({
+            left: btn.style.left,
+            top: btn.style.top
+        }));
+    });
+
+    // 👆 CLIQUE ABRE OCR (sem arrastar)
+    btn.addEventListener('click', e => {
+        if (dragging) return;
+        overlay.style.display = 'block';
+    });
+
+    closeBtn.onclick=()=>overlay.style.display='none';
 
     /* ========= INPUT ========= */
     const input=document.createElement('input');
@@ -480,6 +563,67 @@ modalRod.querySelector('#buscaRod').oninput = e => {
         processFiles(e.dataTransfer.files);
     };
     input.onchange=()=>processFiles(input.files);
+
+    let fullscreen = false;
+    let estadoOriginal = {};
+    let darkMode = localStorage.getItem('OCR_DARK') === '1';
+
+    if (darkMode) {
+        overlay.classList.add('dark');
+        darkBtn.textContent = '☀️';
+    }
+
+    darkBtn.onclick = () => {
+        darkMode = !darkMode;
+
+        overlay.classList.toggle('dark', darkMode);
+        darkBtn.textContent = darkMode ? '☀️' : '🌙';
+
+        localStorage.setItem('OCR_DARK', darkMode ? '1' : '0');
+    };
+
+    maxBtn.onclick = () => {
+        if (!fullscreen) {
+            // salva estado flutuante
+            estadoOriginal = {
+                top: overlay.style.top,
+                left: overlay.style.left,
+                width: box.style.width,
+                height: box.style.height
+            };
+
+            // ativa fullscreen real
+            overlay.classList.add('fullscreen');
+            box.classList.add('fullscreen');
+
+            // 🔥 abre todos os comprovantes (modo informativo)
+            document.querySelectorAll('.doc-body').forEach(b => {
+                b.style.display = 'block';
+            });
+
+            maxBtn.textContent = '⤡'; // recolher
+            fullscreen = true;
+
+        } else {
+            // restaura modo flutuante
+            overlay.classList.remove('fullscreen');
+            box.classList.remove('fullscreen');
+
+            overlay.style.top = estadoOriginal.top || '120px';
+            overlay.style.left = estadoOriginal.left || '120px';
+            box.style.width = estadoOriginal.width || '600px';
+            box.style.height = estadoOriginal.height || '';
+
+            // 🔁 volta comportamento normal (cards fechados)
+            document.querySelectorAll('.doc-body').forEach(b => {
+                b.style.display = 'none';
+            });
+
+            maxBtn.textContent = '⤢'; // expandir
+            fullscreen = false;
+        }
+    };
+
 
     /* ========= SOBRENOMES ========= */
     const SOBRENOMES=new Set([
