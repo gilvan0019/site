@@ -836,29 +836,52 @@ body {
   display: none !important;
 }
 
-/* info principal */
+/* ===========================
+   INFO COMPLETA NA LISTA
+=========================== */
+
 .doc-final {
-  flex: 1;
-  display: flex;
+  display: grid !important;
+  grid-template-columns: 
+    minmax(180px, 1.6fr)   /* nome */
+    70px                   /* hora */
+    90px                   /* valor */
+    90px;                  /* taxa */
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   font-size: 14px;
 }
 
+/* nome */
 .final-nome {
   font-weight: 600;
   color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* horário */
 .final-hora {
   font-size: 13px;
   color: #6b7280;
+  text-align: center;
 }
 
+/* valor */
 .final-valor {
   font-weight: 700;
   color: #2563eb;
+  text-align: right;
 }
+
+/* taxa */
+.final-taxa {
+  font-weight: 700;
+  color: #d97706;
+  text-align: right;
+}
+
 
 /* ações à direita */
 .doc-actions {
