@@ -435,13 +435,21 @@ function renderRodoviarias(lista) {
 
     const cidade = r['CIDADE - UF'] || '';
     const nome = r['Nome'] || '';
-    const endereco = r['Descricao'] || '';
-
+const endereco = r['Descricao'] || '';
+const horario = r.Horario || {};
+    
     item.innerHTML = `
-      <div class="rod-nome">${nome}</div>
-      <div class="rod-cidade">${cidade}</div>
-      <div class="rod-endereco">${endereco}</div>
-    `;
+  <div class="rod-nome">${nome}</div>
+  <div class="rod-cidade">${cidade}</div>
+  <div class="rod-endereco">${endereco}</div>
+
+  <div class="rod-horario">
+    ⏰ <b>Horário:</b><br>
+    ${horario.seg_sex ? `Seg–Sex: ${horario.seg_sex}<br>` : ''}
+    ${horario.sab ? `Sáb: ${horario.sab}<br>` : ''}
+    ${horario.dom ? `Dom: ${horario.dom}` : ''}
+  </div>
+`;
 
     // 📋 clique copia endereço
     item.onclick = () => {
