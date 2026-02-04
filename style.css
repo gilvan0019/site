@@ -196,23 +196,6 @@
 .final-valor {
   color: #0d47a1;
 }
-
-.ocr-overlay.fullscreen {
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-}
-
-.ocr-overlay.fullscreen .ocr-box {
-  width: 100% !important;
-  height: 100% !important;
-  max-height: none !important;
-  border-radius: 0 !important;
-  cursor: default !important;
-}
-
-
 /* o card vira a linha */
 .ocr-overlay.fullscreen .doc {
   display: flex !important;
@@ -1016,11 +999,25 @@ body {
   margin-top: 12px;
 }
 /* ===== MODO EXPANDIDO ===== */
+/* ===== FULLSCREEN RESPEITANDO SIDEBAR ===== */
 .ocr-overlay.fullscreen {
   position: fixed !important;
-  inset: 0 !important;
+  top: 0 !important;
+  left: 220px !important;                /* respeita sidebar */
+  width: calc(100vw - 220px) !important; /* só área útil */
+  height: 100vh !important;
   padding: 0 !important;
+  z-index: 9999999 !important;
 }
+.ocr-overlay.fullscreen .ocr-box {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+  cursor: default !important;
+}
+
 
 .ocr-box.fullscreen {
   width: 98vw !important;
