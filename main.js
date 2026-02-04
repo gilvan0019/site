@@ -323,7 +323,7 @@ btnRod.onclick = async () => {
     reportBtn.className = 'btn-green';
     closeBtn.className  = 'btn-green';
     overlay.append(box);
-    document.body.appendChild(overlay);
+document.getElementById('app-root').appendChild(overlay);
     overlay.style.display = 'none';
 
     carregarStorage();
