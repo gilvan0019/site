@@ -150,22 +150,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     topActions.className = 'ocr-top-actions';
     box.appendChild(topActions);
 
-    // 🧮 BOTÃO CALCULADORA
-    const calcBtn = document.createElement('button');
-    calcBtn.textContent = '🧮';
-    calcBtn.title = 'Calculadora';
-
-    // adiciona primeiro
-    topActions.appendChild(calcBtn)
-    calcBtn.onclick = () => {
-        const aberto = calcPanel.style.display === 'block';
-        calcPanel.style.display = aberto ? 'none' : 'block';
-
-        inputCalc.value = '';
-        resultadoCalc.innerHTML = 'Informe um valor para calcular.';
-    };
-
-
     const maxBtn = document.createElement('button');
     maxBtn.textContent = '⤢';
     maxBtn.title = 'Maximizar / Restaurar';
@@ -176,19 +160,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const darkBtn = document.createElement('button');
     darkBtn.textContent = '🌙';
     darkBtn.title = 'Modo escuro';
-// 🚌 BOTÃO RODOVIÁRIAS (TOPO)
-const btnRod = document.createElement('button');
-btnRod.textContent = '🚌';
-btnRod.title = 'Rodoviárias';
 
-topActions.appendChild(btnRod);
-
-btnRod.onclick = async () => {
-  modalRod.style.display = 'block';
-  await carregarRodoviarias();
-};
-
-  
     topActions.appendChild(darkBtn);
 
 
@@ -324,7 +296,7 @@ btnRod.onclick = async () => {
     closeBtn.className  = 'btn-green';
     overlay.append(box);
 document.getElementById('app-root').appendChild(overlay);
-    overlay.style.display = 'none';
+overlay.style.display = 'block';
 
     carregarStorage();
     restaurarCardsDaTela();
@@ -404,6 +376,27 @@ modalRod.innerHTML = `
 `;
 
 document.body.appendChild(modalRod);
+// ===== SIDEBAR ACTIONS =====
+const btnCalcSidebar = document.getElementById('btnCalc');
+const btnRodSidebar  = document.getElementById('btnRod');
+
+if (btnCalcSidebar) {
+  btnCalcSidebar.onclick = () => {
+    const aberto = calcPanel.style.display === 'block';
+    calcPanel.style.display = aberto ? 'none' : 'block';
+
+    if (!aberto) {
+      calcPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+}
+
+if (btnRodSidebar) {
+  btnRodSidebar.onclick = async () => {
+    modalRod.style.display = 'block';
+    await carregarRodoviarias();
+  };
+}
 
   
 let rodoviarias = [];
