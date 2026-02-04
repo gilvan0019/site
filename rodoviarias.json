@@ -4766,35 +4766,34 @@
       "Descricao": "Rodoviária de Rondonópolis - Jardim Belo Horizonte, Rua trinta e um de Dezembro, 236",
       "Latitude": "-16.452950",
       "Longitude": "-54.66094"
-    },
-    {
-      "CIDADE - UF": "ROSARIO OESTE - MT",
-      "UF": "MT",
-      "Nome": "ROSARIO OESTE - MT",
-      "Descricao": "Rodoviária de Rosário Oeste - Rua Dom Aquino Corrêa, s/n",
-      "Latitude": "-14.840394",
-      "Longitude": "-56.435126"
-    },
-  {
-  "CIDADE - UF": "RUSSAS - CE",
-  "UF": "CE",
-  "Nome": "RUSSAS - CE",
-  "Descricao": "Agência Guanabara de Russas - Planalto da Catumbela, Av. Irmã Maria da Graça, 1631",
-  "Latitude": "-4.949351",
-  "Longitude": "-37.989380",
-    },
-    {
-      "CIDADE - UF": "SALGUEIRO - PE",
-      "UF": "PE",
-      "Nome": "SALGUEIRO - PE",
-      "Descricao": "Agência Guanabara de Salgueiro - Rua João Veras de Siqueira, 1821",
-      "Latitude": "-8.071629",
-      "Longitude": "-39.135066"
-      "Horario": {
-    "seg_dom": "24 horas",
-  }
-    },
-    {
+      },
+      {
+        "CIDADE - UF": "ROSARIO OESTE - MT",
+        "UF": "MT",
+        "Nome": "ROSARIO OESTE - MT",
+        "Descricao": "Rodoviária de Rosário Oeste - Rua Dom Aquino Corrêa, s/n",
+        "Latitude": "-14.840394",
+        "Longitude": "-56.435126"
+      },
+      {
+      "CIDADE - UF": "RUSSAS - CE",
+      "UF": "CE",
+      "Nome": "RUSSAS - CE",
+      "Descricao": "Agência Guanabara de Russas - Planalto da Catumbela, Av. Irmã Maria da Graça, 1631",
+      "Latitude": "-4.949351",
+      "Longitude": "-37.989380",
+      },
+        {
+        "CIDADE - UF": "SALGUEIRO - PE",
+        "UF": "PE",
+        "Nome": "SALGUEIRO - PE",
+        "Descricao": "Agência Guanabara de Salgueiro - Rua João Veras de Siqueira, 1821",
+        "Latitude": "-8.071629",
+        "Longitude": "-39.135066"
+        "Horario": {
+      "seg_dom": "24 horas",
+      },
+      {
       "CIDADE - UF": "SANTA CRUZ - RN",
       "UF": "RN",
       "Nome": "SANTA CRUZ - RN",
