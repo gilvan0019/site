@@ -1131,8 +1131,7 @@ body {
 
 /* ===== CONTEÚDO ===== */
 .app-content {
-  margin-left: 220px; /* espaço da sidebar */
-  width: calc(100vw - 220px);
+  flex: 1;
   height: 100vh;
   overflow: auto;
   padding: 16px;
