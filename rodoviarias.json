@@ -5696,10 +5696,18 @@
     "Longitude": "-43.229207"
   },
   {
-    "CIDADE - UF": "RIO DE JANEIRO (Barra da Tijuca - Via Parque) - RJ",
+    "CIDADE - UF": "RIO DE JANEIRO - RJ",
     "UF": "RJ",
-    "Nome": "Barra da Tijuca - Via Parque - RJ",
+    "Nome": "RIO DE JANEIRO (BARRA DA TIJUCA - VILA PARQUE) - RJ",
     "Descricao": "Avenida Ayrton Senna, n°. 3.000, Barra da Tijuca, CEP 22.775-904",
+    "Latitude": "-23.516324",
+    "Longitude": "-46.623764"
+  },
+  {
+    "CIDADE - UF": "RIO DE JANEIRO - RJ",
+    "UF": "RJ",
+    "Nome": "RIO DE JANEIRO (RIO 2 - BARRA OLIMPICA) - RJ",
+    "Descricao": "Rua Bruno Giorgi, S/N, Barra OlImpica, Rio de Janeiro – RJ, CEP 2775-054",
     "Latitude": "-23.516324",
     "Longitude": "-46.623764"
   }
