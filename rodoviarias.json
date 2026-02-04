@@ -5694,5 +5694,13 @@
     "Descricao": "Terminal Rodoviário Governador Leonel Brizola - Terminal Bingen, 1118 - Bingen, Petrópolis - RJ",
     "Latitude": "-22.516486",
     "Longitude": "-43.229207"
+  },
+  {
+    "CIDADE - UF": "RIO DE JANEIRO (Barra da Tijuca - Via Parque) - RJ",
+    "UF": "RJ",
+    "Nome": "Barra da Tijuca - Via Parque - RJ",
+    "Descricao": "Avenida Ayrton Senna, n°. 3.000, Barra da Tijuca, CEP 22.775-904",
+    "Latitude": "-23.516324",
+    "Longitude": "-46.623764"
   }
 ]
