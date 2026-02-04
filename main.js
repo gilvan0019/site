@@ -330,7 +330,6 @@ btnRod.onclick = async () => {
     restaurarCardsDaTela();
     atualizarTotalTela();
     atualizarContador();
-carregarRodoviarias();
 
     /* ========= DRAG ========= */
     let drag=false,ox=0,oy=0;
@@ -420,7 +419,7 @@ async function carregarRodoviarias() {
 }
 
 // 🔹 Renderiza lista
-ffunction renderRodoviarias(lista) {
+function renderRodoviarias(lista) {
   const container = modalRod.querySelector('#listaRod');
   container.innerHTML = '';
 
@@ -458,12 +457,6 @@ ffunction renderRodoviarias(lista) {
   });
 }
 
-
-// 🔹 Abrir modal
-btnRod.onclick = async () => {
-  modalRod.style.display = 'block';
-  await carregarRodoviarias();
-};
 
 // 🔹 Fechar modal
 modalRod.querySelector('#fecharRod').onclick = () => {
