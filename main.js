@@ -320,22 +320,6 @@ overlay.style.display = 'block';
     };
     document.onmouseup=()=>drag=false;
 
-    // ========= BOTÃO OCR MÓVEL =========
-    const btn = document.createElement('button');
-    btn.textContent = '📄 OCR';
-    btn.style.cssText = `
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999999;
-  padding: 10px 16px;
-  border-radius: 50px;
-  border: 0;
-  background: #303F9F;
-  color: #fff;
-  font-weight: bold;
-  cursor: grab;
-`;
     document.body.appendChild(btn);
 
 // 🪟 MODAL RODOVIÁRIAS
@@ -376,6 +360,26 @@ modalRod.innerHTML = `
 `;
 
 document.body.appendChild(modalRod);
+  // ===== TOGGLE SIDEBAR =====
+const toggleSidebar = document.getElementById('toggleSidebar');
+const layout = document.querySelector('.app-layout');
+
+if (toggleSidebar && layout) {
+  toggleSidebar.onclick = () => {
+    layout.classList.toggle('sidebar-collapsed');
+
+    localStorage.setItem(
+      'SIDEBAR_COLLAPSED',
+      layout.classList.contains('sidebar-collapsed') ? '1' : '0'
+    );
+  };
+
+  // restaura estado salvo
+  if (localStorage.getItem('SIDEBAR_COLLAPSED') === '1') {
+    layout.classList.add('sidebar-collapsed');
+  }
+}
+
 // ===== SIDEBAR ACTIONS =====
 const btnCalcSidebar = document.getElementById('btnCalc');
 const btnRodSidebar  = document.getElementById('btnRod');
