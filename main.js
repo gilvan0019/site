@@ -145,24 +145,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const box = document.createElement('div');
     box.className = 'ocr-box';
-    // Criar o container para os botões
-    const topActions = document.createElement('div');
-    topActions.className = 'ocr-top-actions';
-    box.appendChild(topActions);
-
-    const maxBtn = document.createElement('button');
-    maxBtn.textContent = '⤢';
-    maxBtn.title = 'Maximizar / Restaurar';
-    maxBtn.className = 'ocr-max';
-    topActions.appendChild(maxBtn);
-
-
-    const darkBtn = document.createElement('button');
-    darkBtn.textContent = '🌙';
-    darkBtn.title = 'Modo escuro';
-
-    topActions.appendChild(darkBtn);
-
 
     const drop = document.createElement('div');
     drop.className = 'ocr-drop';
@@ -510,67 +492,6 @@ closeBtn.onclick = () => {
         processFiles(e.dataTransfer.files);
     };
     input.onchange=()=>processFiles(input.files);
-
-    let fullscreen = false;
-    let estadoOriginal = {};
-    let darkMode = localStorage.getItem('OCR_DARK') === '1';
-
-    if (darkMode) {
-        overlay.classList.add('dark');
-        darkBtn.textContent = '☀️';
-    }
-
-    darkBtn.onclick = () => {
-        darkMode = !darkMode;
-
-        overlay.classList.toggle('dark', darkMode);
-        darkBtn.textContent = darkMode ? '☀️' : '🌙';
-
-        localStorage.setItem('OCR_DARK', darkMode ? '1' : '0');
-    };
-
-    maxBtn.onclick = () => {
-        if (!fullscreen) {
-            // salva estado flutuante
-            estadoOriginal = {
-                top: overlay.style.top,
-                left: overlay.style.left,
-                width: box.style.width,
-                height: box.style.height
-            };
-
-            // ativa fullscreen real
-            overlay.classList.add('fullscreen');
-            box.classList.add('fullscreen');
-
-            // 🔥 abre todos os comprovantes (modo informativo)
-            document.querySelectorAll('.doc-body').forEach(b => {
-                b.style.display = 'block';
-            });
-
-            maxBtn.textContent = '⤡'; // recolher
-            fullscreen = true;
-
-        } else {
-            // restaura modo flutuante
-            overlay.classList.remove('fullscreen');
-            box.classList.remove('fullscreen');
-
-            overlay.style.top = estadoOriginal.top || '120px';
-            overlay.style.left = estadoOriginal.left || '120px';
-            box.style.width = estadoOriginal.width || '600px';
-            box.style.height = estadoOriginal.height || '';
-
-            // 🔁 volta comportamento normal (cards fechados)
-            document.querySelectorAll('.doc-body').forEach(b => {
-                b.style.display = 'none';
-            });
-
-            maxBtn.textContent = '⤢'; // expandir
-            fullscreen = false;
-        }
-    };
-
 
     /* ========= SOBRENOMES ========= */
     const SOBRENOMES=new Set([
