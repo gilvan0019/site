@@ -373,6 +373,85 @@ btnRod.style.cssText = `
 document.body.appendChild(btnRod);
 // 🪟 MODAL RODOVIÁRIAS
 const modalRod = document.createElement('div');
+let rodoviarias = [];
+
+// 🔹 Carrega JSON apenas uma vez
+async function carregarRodoviarias() {
+  if (rodoviarias.length) return;
+
+  const res = await fetch('./rodoviarias.json');
+  rodoviarias = await res.json();
+
+  renderRodoviarias(rodoviarias);
+}
+
+// 🔹 Renderiza lista
+function renderRodoviarias(lista) {
+  const container = modalRod.querySelector('#listaRod');
+  container.innerHTML = '';
+
+  if (!lista.length) {
+    container.innerHTML =
+      '<p style="opacity:.6">Nenhuma rodoviária encontrada</p>';
+    return;
+  }
+
+  lista.forEach(r => {
+    const item = document.createElement('div');
+    item.style.cssText = `
+      padding:10px;
+      border-bottom:1px solid #ddd;
+      cursor:pointer;
+    `;
+
+    const cidade = r['CIDADE - UF'] || '';
+    const nome = r['Nome'] || '';
+    const endereco = r['Descricao'] || '';
+
+    item.innerHTML = `
+      <strong>${nome}</strong><br>
+      <small>${cidade}</small><br>
+      <span>${endereco}</span>
+    `;
+
+    // 📋 clique copia endereço
+    item.onclick = () => {
+      navigator.clipboard.writeText(endereco);
+      item.style.background = '#e3f2fd';
+      setTimeout(() => (item.style.background = ''), 500);
+    };
+
+    container.appendChild(item);
+  });
+}
+
+// 🔹 Abrir modal
+btnRod.onclick = async () => {
+  modalRod.style.display = 'block';
+  await carregarRodoviarias();
+};
+
+// 🔹 Fechar modal
+modalRod.querySelector('#fecharRod').onclick = () => {
+  modalRod.style.display = 'none';
+};
+
+// 🔹 Busca em tempo real
+modalRod.querySelector('#buscaRod').oninput = e => {
+  const termo = e.target.value.toLowerCase();
+
+  const filtradas = rodoviarias.filter(r =>
+    (r['CIDADE - UF'] || '').toLowerCase().includes(termo) ||
+    (r['Nome'] || '').toLowerCase().includes(termo) ||
+    (r['Descricao'] || '').toLowerCase().includes(termo)
+  );
+
+  renderRodoviarias(filtradas);
+};
+
+
+
+  
 modalRod.style.cssText = `
   position: fixed;
   inset: 0;
