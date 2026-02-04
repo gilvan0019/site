@@ -1151,6 +1151,18 @@ body {
 button {
   font-size: 14px;
 }
+/* ===== OCR DENTRO DO LAYOUT COM SIDEBAR ===== */
+.app-layout .ocr-overlay {
+  margin-left: 220px;                 /* espaço da sidebar */
+  width: calc(100vw - 220px);
+  min-height: 100vh;
+}
+
+/* quando sidebar colapsar */
+.app-layout.sidebar-collapsed .ocr-overlay {
+  margin-left: 64px;
+  width: calc(100vw - 64px);
+}
 
 @media (max-width: 768px) {
   .ocr-box {
