@@ -436,7 +436,7 @@ function renderRodoviarias(lista) {
     const cidade = r['CIDADE - UF'] || '';
     const nome = r['Nome'] || '';
 const endereco = r['Descricao'] || '';
-const horario = r.Horario?.seg_dom || '';
+const horario = r.Horario || {};
     
 item.innerHTML = `
   <div class="rod-nome">${nome}</div>
