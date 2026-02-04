@@ -271,8 +271,8 @@ actionsBottom.append(reportBtn);
     );
 
     reportBtn.className = 'btn-green';
-    closeBtn.className  = 'btn-green';
-    overlay.append(box);
+
+  overlay.append(box);
 document.getElementById('app-root').appendChild(overlay);
 overlay.style.display = 'block';
 
