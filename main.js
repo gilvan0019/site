@@ -178,10 +178,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const list = document.createElement('div');
     list.className = 'ocr-list';
 
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = '❌ Fechar';
-    closeBtn.className = 'close';
-
     const reportBtn = document.createElement('button');
     reportBtn.textContent = ' Gerar relatório EXCEL';
     reportBtn.className = 'close';
@@ -263,7 +259,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const actionsBottom = document.createElement('div');
     actionsBottom.className = 'ocr-actions-bottom';
 
-    actionsBottom.append(reportBtn, closeBtn);
+actionsBottom.append(reportBtn);
 
     box.append(
         drop,
@@ -460,14 +456,6 @@ modalRod.querySelector('#buscaRod').oninput = e => {
   );
 
   renderRodoviarias(filtradas);
-};
-
-closeBtn.onclick = () => {
-    registrosOCR.length = 0;
-    list.innerHTML = '';
-    limparStorage();
-    atualizarContador();
-    atualizarTotalTela();
 };
 
     /* ========= INPUT ========= */
