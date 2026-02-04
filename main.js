@@ -487,31 +487,7 @@ modalRod.innerHTML = `
 `;
 
 document.body.appendChild(modalRod);
-let rodoviarias = [];
 
-async function carregarRodoviarias() {
-  if (rodoviarias.length) return;
-
-  const r = await fetch('./rodoviarias.json');
-  rodoviarias = await r.json();
-  renderRodoviarias(rodoviarias);
-}
-
-function renderRodoviarias(lista) {
-  const box = modalRod.querySelector('#listaRod');
-  box.innerHTML = '';
-
-  lista.forEach(r => {
-    const d = document.createElement('div');
-    d.style.cssText = 'padding:8px;border-bottom:1px solid #ddd';
-    d.innerHTML = `
-      <b>${r.localidade || ''}</b><br>
-      ${r.nome || ''}<br>
-      ${r.endereco || ''}
-    `;
-    box.appendChild(d);
-  });
-}
 btnRod.onclick = async () => {
   modalRod.style.display = 'block';
   await carregarRodoviarias();
