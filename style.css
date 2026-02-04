@@ -1054,6 +1054,34 @@ body {
 .ocr-list {
   margin-top: 12px;
 }
+/* ===== MODO EXPANDIDO ===== */
+.ocr-overlay.fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  padding: 0 !important;
+}
+
+.ocr-box.fullscreen {
+  width: 98vw !important;
+  height: 95vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: auto !important;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* área de lista cresce */
+.ocr-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* mantém rodapé fixo */
+.ocr-actions-bottom {
+  margin-top: auto;
+}
 
 /* ===== BOTÃO OCR FIXO ===== */
 button {
