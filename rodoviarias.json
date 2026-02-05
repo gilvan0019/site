@@ -5710,5 +5710,21 @@
     "Descricao": "Rua Bruno Giorgi, S/N, Barra OlImpica, Rio de Janeiro – RJ, CEP 2775-054",
     "Latitude": "-23.516324",
     "Longitude": "-46.623764"
+  },
+  {
+    "CIDADE - UF": "RIO DE JANEIRO - RJ",
+    "UF": "RJ",
+    "Nome": "RIO DE JANEIRO (SHOPPING RIO SUL - BOTAFOTO) - RJ",
+    "Descricao": "Rua Lauro Muller, 116 - Botafogo, Rio de Janeiro - RJ, 22290-070",
+    "Latitude": "-23.516324",
+    "Longitude": "-46.623764"
+   },
+  {
+    "CIDADE - UF": "SANTOS - SP",
+    "UF": "SP",
+    "Nome": "SANTOS CRUZEIRO NAVIO - SP",
+    "Descricao": "PORTO DE SANTOS - Avenida Guilherme Weinschenck, 21",
+    "Latitude": "-23.516324",
+    "Longitude": "-46.623764"
   }
 ]
