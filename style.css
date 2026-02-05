@@ -1,13 +1,27 @@
-
-
-.ocr-overlay{
-  position: fixed;
-  top: 120px;
-  left: 120px;
-  width: auto;
+.ocr-box {
+  width: 100%;
+  max-width: none;        /* 🔥 nunca limitar */
   height: auto;
+  max-height: 85vh;
+
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 16px 16px;
+  overflow: hidden;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,.35);
+  display: flex;
+  flex-direction: column;
+}
+
+
+.ocr-overlay {
+  position: fixed;
+  top: 16px;
+  left: 220px; /* respeita sidebar */
+  width: calc(100vw - 240px);
+  height: calc(100vh - 32px);
   z-index: 999999;
-  font-family: Arial;
 }
 /* ===== CARD SELECIONADO ===== */
 .doc.selecionado {
@@ -1001,13 +1015,7 @@ body {
 /* ===== MODO EXPANDIDO ===== */
 /* ===== FULLSCREEN RESPEITANDO SIDEBAR ===== */
 .ocr-overlay.fullscreen {
-  position: fixed !important;
-  top: 0 !important;
-  left: 220px !important;                /* respeita sidebar */
-  width: calc(100vw - 220px) !important; /* só área útil */
-  height: 100vh !important;
-  padding: 0 !important;
-  z-index: 9999999 !important;
+  all: unset; /* ou simplesmente apague esse bloco */
 }
 .ocr-overlay.fullscreen .ocr-box {
   width: 100% !important;
