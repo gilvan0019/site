@@ -255,18 +255,18 @@
   display: none !important;
 }
 
-.ocr-box {
+/*.ocr-box {
   width: 600px;
   max-height: 85vh;
   background: #fff;
   border-radius: 16px;
   padding: 22px 16px 16px 16px;
-  overflow: hidden;      /* 🔒 certo */
+  overflow: hidden;     
   box-shadow: 0 15px 40px rgba(0,0,0,.35);
   cursor: move;
   display: flex;
   flex-direction: column;
-}
+}*/
 
 
 .ocr-list {
@@ -928,7 +928,7 @@ body {
 
 /* ===== CONTAINER PRINCIPAL ===== */
 
-.ocr-box {
+/*.ocr-box {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
@@ -936,7 +936,7 @@ body {
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,.08);
-}
+}*/
 
 /* ===== ÁREA DE DROP ===== */
 .ocr-drop {
